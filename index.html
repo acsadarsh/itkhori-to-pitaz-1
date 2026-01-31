@@ -19,6 +19,10 @@
         nav a:hover { color: var(--neon-pink); }
         .container { max-width: 600px; margin: 30px auto; padding: 15px; }
         .card { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; padding: 25px; border: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 20px; }
+        
+        /* Live Counter Style */
+        .live-counter { font-size: 1.2rem; color: #00ff88; margin-bottom: 15px; font-weight: bold; text-shadow: 0 0 5px #00ff88; }
+        
         input, select { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid var(--neon-blue); color: #fff; border-radius: 8px; box-sizing: border-box; }
         button { width: 100%; padding: 15px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
         .btn-submit { background: var(--neon-blue); color: #000; }
@@ -28,7 +32,7 @@
         .social-btn { display: block; padding: 10px; background: rgba(255,255,255,0.1); margin: 5px 0; text-decoration: none; color: #fff; border-left: 4px solid var(--neon-pink); }
     </style>
 </head>
-<body>
+<body onload="welcomeUser()">
 
 <header>
     <img src="https://i.ibb.co/XfD4JRdF/1000106579.png" class="logo-main" alt="ACS Logo">
@@ -43,6 +47,11 @@
 </nav>
 
 <div class="container">
+    
+    <div class="live-counter">
+        🟢 Live: <span id="countDisplay">142</span> Successful Applications
+    </div>
+
     <div id="home" class="section active card">
         <h2 style="color: var(--neon-pink);">Application Page</h2>
         <p>Itkhori se Pitaz jaane hetu aavedan karein</p>
@@ -71,7 +80,7 @@
     <div id="about" class="section card">
         <h2>About Us</h2>
         <p>Main <b>ADARSH KUMAR CHANDRAVANSHI</b>, Itkhori se hoon.</p>
-        <p>Itkhori se Pitaz jaane hetu aavedan karein. Hum aapko behtareen service dete hain.</p>
+        <p>Hum behtareen cyber services pradan karte hain.</p>
         <img src="https://i.ibb.co/hFRHRQ97/1000101427.png" style="width:100px;">
     </div>
 
@@ -81,7 +90,6 @@
         <a href="https://youtube.com/@hk_gaming_india_yt" class="social-btn">YouTube</a>
         <a href="https://www.instagram.com/royal_chandravanshi_0.7" class="social-btn">Instagram</a>
         <a href="https://t.me/adarsh24361" class="social-btn">Telegram</a>
-        <a href="https://whatsapp.com/channel/0029Vb72goSFSAt3aaSAp11y" class="social-btn">WhatsApp Channel</a>
     </div>
 
     <div id="contact" class="section card">
@@ -93,6 +101,17 @@
 </div>
 
 <script>
+    // WELCOME VOICE FUNCTION
+    function welcomeUser() {
+        let msg = new SpeechSynthesisUtterance("Welcome to Adarsh Computer Services and Solve");
+        msg.rate = 0.9;
+        window.speechSynthesis.speak(msg);
+        
+        // Random Counter Update
+        let count = Math.floor(Math.random() * (200 - 140) + 140);
+        document.getElementById('countDisplay').innerText = count;
+    }
+
     function show(id) {
         document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
         document.getElementById(id).classList.add('active');
