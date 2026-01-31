@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACS & SOLVE | Itkhori to Pitaz</title>
+    <style>
+        /* Modern Cyberpunk Theme */
+        :root {
+            --neon-blue: #00f2ff;
+            --neon-pink: #ff00ea;
+            --bg-dark: #050505;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Background Animation */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #050505 100%);
+            z-index: -1;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--neon-blue);
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-main {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-pink);
+            box-shadow: 0 0 15px var(--neon-pink);
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #111;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: #ccc;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Form Elements */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; margin-bottom: 8px; color: var(--neon-blue); }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        input:focus { border-color: var(--neon-pink); box-shadow: 0 0 10px var(--neon-pink); }
+
+        .btn-group { display: flex; gap: 10px; margin-top: 20px; }
+        
+        button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-submit { background: var(--neon-blue); color: #000; }
+        .btn-submit:hover { box-shadow: 0 0 20px var(--neon-blue); transform: scale(1.02); }
+
+        .btn-reset { background: #333; color: #fff; }
+
+        /* Payment/QR */
+        #qrSection img {
+            width: 250px;
+            margin: 20px 0;
+            border: 4px solid #fff;
+            border-radius: 10px;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            padding: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            text-decoration: none;
+            color: #fff;
+            border-left: 4px solid var(--neon-pink);
+        }
+
+        .section { display: none; }
+        .active { display: block; animation: fadeIn 0.5s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { text-align: center; padding: 40px; color: #555; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="https://i.ibb.co/XfD4JRdF/IMG-20250117-185458.jpg" class="logo-main" alt="ACS Logo">
+        <h1>ADARSH COMPUTER SERVICES & SOLVE 🖥️</h1>
+    </div>
+</header>
+
+<nav>
+    <a onclick="show('home')">Home</a>
+    <a onclick="show('about')">About</a>
+    <a onclick="show('social')">Social</a>
+    <a onclick="show('contact')">Contact</a>
+</nav>
+
+<div class="container">
+    
+    <div id="home" class="section active card">
+        <h2 style="color: var(--neon-pink);">Application Page</h2>
+        <p>Itkhori se Pitaz jaane ke liye form bharein</p>
+        <p style="color: #00ff88;">WhatsApp: 8252900810</p>
+        <hr style="border: 0.5px solid #333; margin: 20px 0;">
+        
+        <div class="form-group">
+            <label>1. Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label>2. Mobile Number</label>
+            <input type="tel" id="mobile" placeholder="Enter mobile number">
+        </div>
+        <div class="form-group">
+            <label>3. Your Location</label>
+            <input type="text" id="loc" placeholder="Current location">
+        </div>
+        <div class="form-group">
+            <label>4. Alternate Number (Optional)</label>
+            <input type="tel" id="alt" placeholder="Optional number">
+        </div>
+
+        <div class="btn-group">
+            <button class="btn-reset" onclick="location.reload()">Reset</button>
+            <button class="btn-submit" onclick="goPayment()">Submit Application</button>
+        </div>
+    </div>
+
+    <div id="payment" class="section card">
+        <h2>Payment Details</h2>
+        <div class="form-group">
+            <label>Select Payment Mode:</label>
+            <select id="payType" onchange="toggleQR()" style="width:100%; padding:12px; background:#000; color:white; border:1px solid var(--neon-blue);">
+                <option value="">-- Choose Option --</option>
+                <option value="daily">Daily Payment</option>
+                <option value="once">One Time Payment</option>
+                <option value="cash">Cash on Payment</option>
+            </select>
+        </div>
+
+        <div id="qrSection" style="display:none; text-align:center;">
+            <p style="color:var(--neon-blue)">Pay with QR Code:</p>
+            <img src="https://i.ibb.co/hFRHRQ97/IMG-20250117-185640.jpg" alt="Payment QR">
+            <p>Payment ke baad "Confirm" par click karein</p>
+            <button class="btn-submit" onclick="success()">Confirm Payment</button>
+        </div>
+        
+        <div id="cashMsg" style="display:none; text-align:center;">
+            <p>Aapne Cash Payment chuna hai. Application submit karne ke liye confirm karein.</p>
+            <button class="btn-submit" onclick="success()">Confirm Application</button>
+        </div>
+    </div>
+
+    <div id="about" class="section card">
+        <h2 style="color: var(--neon-blue);">About Us</h2>
+        <p>Main <b>ADARSH KUMAR CHANDRAVANSHI</b>, Itkhori se hoon.</p>
+        <p>Hamari seva "Itkhori se Pitaz" tak ke liye vishesh roop se banayi gayi hai. Aap kisi bhi samay online aavedan kar sakte hain.</p>
+        <div style="text-align:center;">
+             <img src="https://i.ibb.co/Sw1j4wvj/IMG-20250117-185617.jpg" style="width:150px; border-radius: 10px; opacity:0.8;" alt="About Image">
+        </div>
+    </div>
+
+    <div id="social" class="section card">
+        <h2>Social Links</h2>
+        <img src="https://i.ibb.co/8D8dxmGF/IMG-20250117-185536.jpg" style="width:100%; border-radius:10px; margin-bottom:20px; max-height: 200px; object-fit: cover;" alt="Social Banner">
+        <div class="social-grid">
+            <a href="https://youtube.com/@hk_gaming_india_yt" class="social-btn">YouTube</a>
+            <a href="https://www.instagram.com/royal_chandravanshi_0.7" class="social-btn">Instagram</a>
+            <a href="https://t.me/adarsh24361" class="social-btn">Telegram</a>
+            <a href="https://whatsapp.com/channel/0029Vb72goSFSAt3aaSAp11y" class="social-btn">WhatsApp</a>
+            <a href="https://www.snapchat.com/add/kumar-karanraj" class="social-btn">Snapchat</a>
+            <a href="https://www.linkedin.com/in/adarsh-kumar-chandravanshi-562b75375" class="social-btn">LinkedIn</a>
+        </div>
+    </div>
+
+    <div id="contact" class="section card">
+        <h2>Contact Information</h2>
+        <div style="text-align:left; line-height:2;">
+            <p>👤 <b>Owner:</b> ADARSH KUMAR CHANDRAVANSHI</p>
+            <p>📞 <b>WhatsApp:</b> 8252900810</p>
+            <p>📧 <b>Email:</b> acs.adarsh.com@gmail.com</p>
+            <p>📍 <b>Location:</b> Itkhori, Chatra, Jharkhand</p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 Adarsh Computer Services & Solve | Itkhori</p>
+</footer>
+
+<script>
+    function show(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+    }
+
+    function goPayment() {
+        let name = document.getElementById('name').value;
+        if(name === "") { alert("Please enter your name"); return; }
+        show('payment');
+    }
+
+    function toggleQR() {
+        let type = document.getElementById('payType').value;
+        let qr = document.getElementById('qrSection');
+        let cash = document.getElementById('cashMsg');
+        
+        qr.style.display = (type === 'daily' || type === 'once') ? 'block' : 'none';
+        cash.style.display = (type === 'cash') ? 'block' : 'none';
+    }
+
+    function success() {
+        alert("Congratulations! Aapka Application aur Payment receive ho gaya hai.");
+        show('home');
+    }
+</script>
+
+</body>
+</html>
